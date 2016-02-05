@@ -1,7 +1,7 @@
 module Main where
 
 import System.Environment (getArgs)
-import Data.Char
+import Data.List (intercalate)
 
 main :: IO()
 
@@ -17,7 +17,6 @@ applyByLine func = do
             lines <- readInput
             mapM_ putStrLn (map func lines)
 
-sumDigits :: String -> String
-sumDigits x = show $ sum [ digitToInt c | c <- x ]
+reverseWords x = intercalate " " $ reverse $ words x
 
-main = applyByLine sumDigits
+main = applyByLine reverseWords

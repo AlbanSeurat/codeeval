@@ -17,7 +17,11 @@ applyByLine func = do
             lines <- readInput
             mapM_ putStrLn (map func lines)
 
-sumDigits :: String -> String
-sumDigits x = show $ sum [ digitToInt c | c <- x ]
 
-main = applyByLine sumDigits
+
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci x = fibonacci(x - 1) + fibonacci(x - 2)
+
+
+main = applyByLine (\x -> show $ fibonacci (read x :: Int))

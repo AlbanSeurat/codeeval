@@ -1,7 +1,7 @@
 module Main where
 
 import System.Environment (getArgs)
-import Data.Char
+import Data.Char (toLower)
 
 main :: IO()
 
@@ -17,7 +17,9 @@ applyByLine func = do
             lines <- readInput
             mapM_ putStrLn (map func lines)
 
-sumDigits :: String -> String
-sumDigits x = show $ sum [ digitToInt c | c <- x ]
 
-main = applyByLine sumDigits
+main = applyByLine (\x -> map toLower x)
+
+
+
+
