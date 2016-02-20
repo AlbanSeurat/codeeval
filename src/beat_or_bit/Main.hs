@@ -35,7 +35,7 @@ grayToBin 0 = 0
 grayToBin g = g `xor` (grayToBin $ g `shiftR` 1)
 
 grayToBit :: String -> String
-grayToBit x = maybe "error" show $ fmap (\y -> grayToBin y) $ readBin x
+grayToBit x = maybe "error" show $ fmap grayToBin $ readBin x
 
 beatOrBit x = intercalate " | " $ map grayToBit $ split " |" x
 
