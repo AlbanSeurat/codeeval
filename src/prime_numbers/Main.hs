@@ -27,12 +27,6 @@ split s x = filter (not . (split' s)) $ groupBy ((==) `on` (`elem` s)) x
          where split' n xs = any (`elem` xs) n
 
 
-inc 115 = 151
-inc 151 = 511
-inc 511 = 1015
-inc 1015 = 1051
-
-
 primes :: [Integer]
 primes = sieve [2..]
   where
